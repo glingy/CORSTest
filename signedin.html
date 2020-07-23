@@ -1,0 +1,20 @@
+<html>
+  <head>
+    <title>Successfully Signed In!</title>
+  </head>
+  <body>
+    <h1>You successfully signed in!</h1>
+    <p id="response"></p>
+    <script>
+      let r = new XMLHttpRequest()
+      r.withCredentials = true
+      r.onload = (e) => {
+        console.log(e)
+        console.log(r)
+        document.getElementById("response").innerText = r.response
+      }
+      r.open("GET", "https://dev-813260.okta.com/api/v1/sessions/me")
+      r.send()
+    </script>
+  </body>
+</html>
